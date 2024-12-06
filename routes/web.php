@@ -34,3 +34,7 @@ Route::get('/test-email', function () {
 
     return 'Email has been sent successfully!';
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
