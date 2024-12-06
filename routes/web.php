@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +21,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('/test-email', function () {
+    $details = [
+        'title' => 'Test Email from Laravel',
+        'body' => 'This is a test email to verify the email configuration in Laravel.'
+    ];
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Mail::raw($details['body'], function ($message) use ($details) {
+        $message->to('testrecipient@mail.com')
+                ->subject($details['title']);
+    });
+
+    return 'Email has been sent successfully!';
+});
