@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,5 @@ Route::get('/test-email', function () {
     return 'Email has been sent successfully!';
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/send-email', [EmailController::class, 'showForm']);
+Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('send-email');
