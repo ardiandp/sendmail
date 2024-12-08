@@ -1,5 +1,6 @@
 @extends('adminlte::page', [ 'layout' => 'collapsed', 'sidebar_minimize' => true])
 
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
 @section('preloader')
     <i class="fas fa-4x fa-spin fa-spinner text-secondary"></i>

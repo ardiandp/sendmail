@@ -36,5 +36,10 @@ Route::get('/test-email', function () {
     return 'Email has been sent successfully!';
 });
 
-Route::get('/send-email', [EmailController::class, 'showForm']);
+Route::get('/input-email', [EmailController::class, 'showForm']);
 Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('send-email');
+
+
+Route::get('/email-form1', [EmailController::class, 'showEmailForm1'])->name('email.form1');
+Route::get('/email-form2', [EmailController::class, 'showEmailForm2'])->name('email.form2');
+Route::post('/send-email-2', [EmailController::class, 'sendEmailWithAttachment'])->name('email.send');
